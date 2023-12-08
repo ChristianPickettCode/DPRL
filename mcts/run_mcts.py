@@ -27,7 +27,7 @@ game.state = start_state
 mcts = MCTS(game)
 best_action = mcts.get_best_action(maxiter=2048)
 print(
-    f"best action for start state: {best_action.action}, expected val: {mcts.root.vval:.4f}"
+    f"best action for start state: {best_action[0].action}, expected val: {mcts.root.vval:.4f}"
 )
 print(game.state)
 n = 50
@@ -43,7 +43,7 @@ for _ in range(n):
     done = False
     while not done:
         best_action = mcts.get_best_action(maxiter=128)
-        reward, done = game.step(best_action.action)
+        reward, done = game.step(best_action[0].action)
         if done:
             if reward > 0:
                 wins += 1

@@ -18,7 +18,7 @@ class MCTS:
         # print(self.root.vval)
         # for action in self.root.actions.values():
         #     print(f"{action.action} {action.qval:.2f}")
-        return self._get_maxq_action(self.root)
+        return self._get_maxq_action(self.root), self.root.actions.values()
 
     def print_tree(self, node=None):
         if node is None:
